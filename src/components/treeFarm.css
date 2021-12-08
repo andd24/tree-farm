@@ -1,6 +1,5 @@
 /* Import the google web fonts you want to use */
 @import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
-
 /*Typography
 --------------------------------------------------------------*/
 body,
@@ -21,4 +20,10 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin-bottom: 1.5em;
+}
+
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }

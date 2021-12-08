@@ -14,9 +14,12 @@ export const TreeFarm = () => (
           return (
             <>
               <NavBar />
+            <section class="title"> 
+              <img src="https://www.nicepng.com/png/detail/111-1118713_pdbottom-paint-fir-tree-silhouette.png" height="50" width="75" />
               <h1>Tree Farm</h1>
-              <ApplicationViews />
-
+            </section>  
+            <ApplicationViews />
+            
             </>
           );
         } else {

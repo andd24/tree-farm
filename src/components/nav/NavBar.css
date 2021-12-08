@@ -2,9 +2,36 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: left;
+    background-color: rgb(16, 65, 16);
+    color: white;
+    min-height: 50px;
+    height: 50px; 
 }
 
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
 }
+a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  }

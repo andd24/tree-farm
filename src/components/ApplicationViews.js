@@ -2,6 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { LocationList } from "./locations/locationList"
 import { HomePage } from "./homePage"
+import { OrderPage } from "./orders/orderPage"
 
 
 export const ApplicationViews = () => {
@@ -13,7 +14,9 @@ export const ApplicationViews = () => {
             <Route path="/locations">
                 <LocationList />
             </Route>
-
+            <Route path="/orders">
+                <OrderPage />
+            </Route>
         </>
     )
 }

@@ -8,8 +8,13 @@ export const LocationList = () => {
         locationRepo.getAll().then(loc => setLocations(loc))
     }, [])
     return (
-        <div className="locations">
+        <>
+        <h2>Our Locations</h2>
+        <section class="locations">
+        <div>
             {locations.map(l => l.name )}
         </div>
+        </section>
+        </>
     )
 }
