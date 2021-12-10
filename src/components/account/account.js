@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react"
+import { useHistory, useParams } from "react-router"
 import userRepo from "../../repos/userRepo"
+import useResourceResolver from "../../hooks/resource"
 
-const [users, setUsers] = useState([])
+export const AccountPage = () => {
+    const [users, setUsers] = useState([])
+    const { userId } = useParams()
+    const { resolveResource, resource } = useResourceResolver()
+
+    useEffect(() => {
+        
+        resolveResource(user, userId, userRepo.get)
+    }, [])
 
 
-useEffect(() => {
-    userRepo.getAll().then(user => setUsers(user))
-}, [])
+}
 
-let foundUser = users.find(user => user.id === parseInt(localStorage.getItem(farm_user)))
 
 

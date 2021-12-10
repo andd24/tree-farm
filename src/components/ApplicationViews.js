@@ -3,6 +3,7 @@ import { Route } from "react-router-dom"
 import { LocationList } from "./locations/locationList"
 import { HomePage } from "./homePage"
 import { OrderPage } from "./orders/orderPage"
+import { AccountPage } from "./account/account"
 
 
 export const ApplicationViews = () => {
@@ -16,6 +17,9 @@ export const ApplicationViews = () => {
             </Route>
             <Route path="/orders">
                 <OrderPage />
+            </Route>
+            <Route path="account/:userId(\d+)">
+                <AccountPage />
             </Route>
         </>
     )
