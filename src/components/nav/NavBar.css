@@ -4,8 +4,6 @@
     justify-content: left;
     background-color: rgb(16, 65, 16);
     color: white;
-    min-height: 50px;
-    height: 50px; 
 }
 
 .navbar__item {

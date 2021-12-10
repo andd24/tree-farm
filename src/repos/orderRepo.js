@@ -13,5 +13,12 @@ export default {
     },
     async getAllWreaths() {
         return await fetchIt(`${settings.remoteURL}/wreaths`)
-    }
+    },
+    async addOrder(newOrder) {
+        return await fetchIt(
+            `${settings.remoteURL}/orders`,
+            "POST",
+            JSON.stringify(newOrder)
+        )
+    },
 }

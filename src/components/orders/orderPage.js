@@ -1,6 +1,7 @@
-import React, { useState, useHistory, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import locationRepo from "../../repos/locationRepo"
 import orderRepo from "../../repos/orderRepo"
+import { useHistory } from "react-router"
 import "./orderPage.css"
 
 export const OrderPage = () => {
@@ -15,6 +16,8 @@ export const OrderPage = () => {
     const [wreathId, setWreathId] = useState(0)
     const [checked, setChecked] = useState(false)
     const [locationId, setLocationId] = useState(0)
+    const [saveEnabled, setEnabled] = useState(false)
+    const history = useHistory()
 
     useEffect(() => {
         orderRepo.getAllLights().then(light => setLights(light))
@@ -32,26 +35,6 @@ export const OrderPage = () => {
                 return `${option.description}`
             }
     }
-    
-    const subtotal = (a, b, c, d, e) => {
-        let subtotal = 0
-        if (a.id === heightId) {
-            subtotal += a.price
-        }
-        if (b.id === lightId) {
-            subtotal += b.price
-        }
-        if (c.id === flockId) {
-            subtotal += c.price
-        }
-        if (d.id === wreathId) {
-            subtotal += d.price
-        }
-        if (e) {
-            subtotal += 20
-        }
-        return subtotal
-    }
 
     const handleChange = () => {
         setChecked(!checked)
@@ -67,7 +50,7 @@ export const OrderPage = () => {
     }
 
     const Pickup = ({}) => {
-        if (checked === false) {
+        if (checked === true) {
             return ``
         }
         else {
@@ -88,18 +71,58 @@ export const OrderPage = () => {
                 ))}
             </select>
         </div> )
+        } 
+    }
+
+    const subtotal = (heightId, lightId, flockId, wreathId, checked) => {
+        let subtotal = 0
+        let foundHeight = heights.find(height => height.id === heightId)
+        if (foundHeight) {
+            subtotal += foundHeight.price
         }
-        
+        let foundLight = lights.find(light => light.id === lightId)
+        if (foundLight) {
+            subtotal += foundLight.price
+        }
+        let foundFlock = flocks.find(flock => flock.id === flockId)
+        if (foundFlock) {
+           subtotal += foundFlock.price 
+        }
+        let foundWreath = wreaths.find(wreath => wreath.id === wreathId) 
+        if (foundWreath) {
+           subtotal += foundWreath.price 
+        }
+        if (checked) {
+            subtotal += 25
+        }
+        return subtotal
     }
 
-    const tax = () => {
-        return subtotal() * 0.07 
-    }
+    const makeOrder = evt => {
+        evt.preventDefault()
+        if (heightId === 0) {
+            window.alert("Please select a tree")
+        }
+        else if (checked === false && locationId === 0) {
+            window.alert("Please add a home delivery or select a location for pickup")
+        } 
+        else {
+            const order = {
+                userId: parseInt(localStorage.getItem("farm_user")),
+                heightId: heightId,
+                lightId: lightId,
+                flockId: flockId,
+                wreathId: wreathId,
+                delivery: checked,
+                locationId: locationId,
+                total: subtotal(heightId, lightId, flockId, wreathId, checked),
+                date: new Date().toISOString().slice(0, 10)
+            }
 
-    const grandTotal = () => {
-        let a = subtotal()
-        let b = tax()
-        return a + b
+            orderRepo.addOrder(order)
+                .then(() => setEnabled(true))
+                .then(() => history.push("/account"))
+        }
     }
 
     return (
@@ -136,13 +159,12 @@ export const OrderPage = () => {
                 </label>)}
             </div> 
             <div className="form-group">
-            {flocks.map(flock => 
+                {flocks.map(flock => 
                 <label htmlFor="flocks">
-                {priceDisplay(flock, flock.price)}
-                <input type="radio" id={flock.id} name="flocks" value={flock.id} key={flock.id} checked={flockId === flock.id} onChange={event => setFlockId(parseInt(event.target.value))} 
-                        />
                 <img src={flock.imgURL} height="100" width="100"/>
-                
+                <input type="radio" id={flock.id} name="flocks" value={flock.id} key={flock.id} checked={flockId === flock.id} onChange={event => setFlockId(parseInt(event.target.value))} 
+                />
+                {priceDisplay(flock, flock.price)}
               </label>)}
             </div>
             <div className="form-group">
@@ -162,7 +184,23 @@ export const OrderPage = () => {
                     onChange={handleChange}
                 />  
             </div>
-            <Pickup />
+            <div>
+                <Pickup />
+            </div>
+        </article>
+        <article>
+            <div>
+                <h3>
+                   Total: ${subtotal(heightId, lightId, flockId, wreathId, checked)} 
+                </h3>
+            </div>
+            <div>
+            <button type="submit"
+                onClick={makeOrder}
+                disabled={saveEnabled}
+                className="btn btn-primary"> Submit 
+            </button>
+            </div>
         </article>
 
 

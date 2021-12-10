@@ -11,9 +11,8 @@ export const LocationList = () => {
         <>
         <h2>Our Locations</h2>
         <section class="locations">
-        <div>
-            {locations.map(l => l.name )}
-        </div>
+        {locations.map(l => 
+            <div>{l.name} </div>)}
         </section>
         </>
     )
