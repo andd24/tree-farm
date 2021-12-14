@@ -4,6 +4,7 @@ import { LocationList } from "./locations/locationList"
 import { HomePage } from "./homePage"
 import { OrderPage } from "./orders/orderPage"
 import { AccountPage } from "./account/account"
+import LocationExpand from "./locations/LocationExpand"
 
 
 export const ApplicationViews = () => {
@@ -12,8 +13,11 @@ export const ApplicationViews = () => {
             <Route exact path="/">
                 <HomePage />
             </Route>
-            <Route path="/locations">
+            <Route exact path="/locations">
                 <LocationList />
+            </Route>
+            <Route path="/locations/:locationId(\d+)">
+                <LocationExpand />
             </Route>
             <Route path="/orders">
                 <OrderPage />

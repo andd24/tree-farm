@@ -159,23 +159,22 @@ export const OrderPage = () => {
                 {priceDisplay(light, light.price)}
                 </label>)}
             </div> 
-            <div className="form-group">
+            <div className="form-group" >
                 {flocks.map(flock => 
-                <label htmlFor="flocks">
+                <label htmlFor="flocks" class="card">
                 <img src={flock.imgURL} height="100" width="100"/>
                 <input type="radio" id={flock.id} name="flocks" value={flock.id} key={flock.id} checked={flockId === flock.id} onChange={event => setFlockId(parseInt(event.target.value))} 
                 />
                 {priceDisplay(flock, flock.price)}
               </label>)}
             </div>
-            <div className="form-group">
-            {wreaths.map(wreath => 
-                <label htmlFor="wreaths">
-                {wreath.description} ${wreath.price}
+            <div className="form-group" >
+                {wreaths.map(wreath => 
+                <label htmlFor="wreaths" class="card">
+                <img src={wreath.imgURL} height="100" width="100"/>
                 <input type="radio" id={wreath.id} name="flocks" value={wreath.id} key={wreath.id} checked={wreathId === wreath.id} onChange={event => setWreathId(parseInt(event.target.value))} 
                         />
-                <img src={wreath.imgURL} height="100" width="100"/>
-                
+                {wreath.description} ${wreath.price}
               </label>)}
             </div>
             <div>

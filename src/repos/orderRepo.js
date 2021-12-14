@@ -22,7 +22,7 @@ export default {
         )
     }, 
     async delete(id) {
-        return await fetchIt(`${settings.remoteURL}/orders/${id}`, "DELETE")
+        return await fetch(`${settings.remoteURL}/orders/${id}`, {method: "DELETE"})
     },
     async getOrderByUserId(id) {
         return await fetchIt(`${settings.remoteURL}/orders?userId=${id}`)

@@ -14,16 +14,20 @@ export const AccountPage = () => {
     useEffect(() => {
         userRepo.get(parseInt(localStorage.getItem("farm_user"))).then(user => setUser(user))
         orderRepo.getOrderByUserId(parseInt(localStorage.getItem("farm_user"))).then(orders => setOrders(orders))
-    
     }, [])
 
-    const deleteOrder = (id) => {
-        orderRepo.delete(id).then(() => 
+    const deleteOrder = (event) => {
+        return orderRepo.delete(event.target.value).then(() => 
         orderRepo.getOrderByUserId(parseInt(localStorage.getItem("farm_user")))).then(orders => setOrders(orders))
+    }   
+
+    const logout = () => {
+        localStorage.removeItem("farm_user")
+        history.push("/")
     }
 
     return (
-        <>
+        <>  
         <h2>My Account</h2>
         <div>
            Name: {user.name}
@@ -34,19 +38,32 @@ export const AccountPage = () => {
         <div>
             Address: {user.address}
         </div>
+        <div>
+        <button type="button"
+                className="btn btn-success "
+                onClick={() => { logout()  }}>
+            Logout
+        </button>
+        </div>
         <h2>My Orders</h2>
         <section class="orders">
         {orders.map(order => 
             {return (<article>
             <div>{order.date} </div>
             <div>${order.total}</div>
-            <button type="submit" onClick={() => {deleteOrder(order.id)} }>Delete</button>
+            <div>
+            <button type="button"
+                    className="btn btn-success "
+                    key={order.id}
+                    value={order.id}
+                    onClick={(e) => { deleteOrder(e)  }}>
+                Delete
+            </button>
+            </div>
             </article>)}
             )}
         </section>
         </>
-
-       
     )
 }   
 
