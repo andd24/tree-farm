@@ -20,5 +20,12 @@ export default {
             "POST",
             JSON.stringify(newOrder)
         )
+    }, 
+    async delete(id) {
+        return await fetchIt(`${settings.remoteURL}/orders/${id}`, "DELETE")
     },
+    async getOrderByUserId(id) {
+        return await fetchIt(`${settings.remoteURL}/orders?userId=${id}`)
+    },
+
 }

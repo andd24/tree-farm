@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import locationRepo from "../../repos/locationRepo"
 import orderRepo from "../../repos/orderRepo"
 import { useHistory } from "react-router"
+import { Link } from "react-router-dom"
 import "./orderPage.css"
 
 export const OrderPage = () => {

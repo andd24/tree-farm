@@ -18,7 +18,7 @@ export const ApplicationViews = () => {
             <Route path="/orders">
                 <OrderPage />
             </Route>
-            <Route path="account/:userId(\d+)">
+            <Route path="/account">
                 <AccountPage />
             </Route>
         </>
