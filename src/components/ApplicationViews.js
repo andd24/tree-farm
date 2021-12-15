@@ -5,6 +5,8 @@ import { HomePage } from "./homePage"
 import { OrderPage } from "./orders/orderPage"
 import { AccountPage } from "./account/account"
 import LocationExpand from "./locations/LocationExpand"
+import { AccountForm } from "./account/updateAcct"
+import OrderExpand from "./account/OrderExpand"
 
 
 export const ApplicationViews = () => {
@@ -19,11 +21,17 @@ export const ApplicationViews = () => {
             <Route path="/locations/:locationId(\d+)">
                 <LocationExpand />
             </Route>
-            <Route path="/orders">
+            <Route exact path="/orders">
                 <OrderPage />
             </Route>
-            <Route path="/account">
+            <Route exact path="/account">
                 <AccountPage />
+            </Route>
+            <Route path="/account/form">
+                <AccountForm />
+            </Route>
+            <Route path="/account/:orderId(\d+)">
+                <OrderExpand />
             </Route>
         </>
     )

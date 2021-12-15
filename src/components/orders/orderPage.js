@@ -51,12 +51,8 @@ export const OrderPage = () => {
     }
 
     const Pickup = ({}) => {
-        if (checked === true) {
-            return ``
-        }
-        else {
             return (            <div className="form-group">
-            <label htmlFor="pickup">Pickup</label>
+            <label htmlFor="pickup"></label>
             <select
                 defaultValue=""
                 name="pickup"
@@ -72,7 +68,7 @@ export const OrderPage = () => {
                 ))}
             </select>
         </div> )
-        } 
+        
     }
 
     const subtotal = (heightId, lightId, flockId, wreathId, checked) => {
@@ -102,10 +98,19 @@ export const OrderPage = () => {
     const makeOrder = evt => {
         evt.preventDefault()
         if (heightId === 0) {
-            window.alert("Please select a tree")
+            window.alert("Choose a tree")
         }
-        else if (checked === false && locationId === 0) {
-            window.alert("Please add a home delivery or select a location for pickup")
+        else if (lightId === 0) {
+            window.alert("Please choose a light option")
+        }
+        else if (flockId === 0) {
+            window.alert("Please choose a flock option")
+        }
+        else if (wreathId === 0) {
+            window.alert("Please choose a wreath option")
+        }
+        else if (locationId === 0) {
+            window.alert("Please select a location for pickup")
         } 
         else {
             const order = {
@@ -178,14 +183,14 @@ export const OrderPage = () => {
               </label>)}
             </div>
             <div>
+                <Pickup />
+            </div>
+            <div>
                 <Checkbox
                     label="Add home delivery for $25"
                     value={checked}
                     onChange={handleChange}
                 />  
-            </div>
-            <div>
-                <Pickup />
             </div>
         </article>
         <article>

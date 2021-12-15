@@ -6,7 +6,7 @@ import "./location.css"
 
 
 export default () => {
-    const [location, set] = useState({animals:[], employeeLocations: []})
+    const [location, set] = useState({})
     const { locationId } = useParams()
 
 

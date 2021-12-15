@@ -27,5 +27,7 @@ export default {
     async getOrderByUserId(id) {
         return await fetchIt(`${settings.remoteURL}/orders?userId=${id}`)
     },
-
+    async get(id) {
+        return await fetchIt(`${settings.remoteURL}/orders/${id}`)
+    }
 }
