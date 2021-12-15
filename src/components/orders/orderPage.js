@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import locationRepo from "../../repos/locationRepo"
 import orderRepo from "../../repos/orderRepo"
 import { useHistory } from "react-router"
-import { Link } from "react-router-dom"
 import "./orderPage.css"
 
 export const OrderPage = () => {
@@ -39,36 +38,6 @@ export const OrderPage = () => {
 
     const handleChange = () => {
         setChecked(!checked)
-    }
-
-    const Checkbox = ({ label, value, onChange }) => {
-        return (
-          <label>
-            <input type="checkbox" checked={value} onChange={onChange} />
-            {label}
-          </label>
-        )
-    }
-
-    const Pickup = ({}) => {
-            return (            <div className="form-group">
-            <label htmlFor="pickup"></label>
-            <select
-                defaultValue=""
-                name="pickup"
-                id="locationId"
-                className="form-control"
-                onChange={event => setLocationId(parseInt(event.target.value))}
-            >
-                <option value="">Select a location</option>
-                ${locations.map(location => (
-                    <option key={location.id} id={location.id} value={location.id}>
-                        {location.name}
-                    </option>
-                ))}
-            </select>
-        </div> )
-        
     }
 
     const subtotal = (heightId, lightId, flockId, wreathId, checked) => {
@@ -139,7 +108,7 @@ export const OrderPage = () => {
             <h3>Pick a wreath to add to your order</h3>
             <h3>Choose pick up or delivery from one of our various locations</h3>    
             <div className="form-group">
-                <label htmlFor="heights">Tree sizes</label>
+                <label htmlFor="heights" key="height">Tree sizes</label>
                 <select
                     defaultValue=""
                     name="height"
@@ -157,8 +126,8 @@ export const OrderPage = () => {
             </div>
             <div className="form-group">
                 {lights.map(light => 
-                <label htmlFor="lights" class="card">
-                <img src={light.imgURL} height="100" width="100" value={light.id} />
+                <label htmlFor="lights" className="card" key={light.price}>
+                <img src={light.imgURL} alt="light options" height="100" width="100" value={light.id} />
                 <input type="radio" id={light.id} name="lights" value={light.id} key={light.id} checked={lightId === light.id} onChange={event => setLightId(parseInt(event.target.value))}
                  />
                 {priceDisplay(light, light.price)}
@@ -166,8 +135,8 @@ export const OrderPage = () => {
             </div> 
             <div className="form-group" >
                 {flocks.map(flock => 
-                <label htmlFor="flocks" class="card">
-                <img src={flock.imgURL} height="100" width="100"/>
+                <label htmlFor="flocks" className="card" key={flock.price}>
+                <img src={flock.imgURL} alt="flock options" height="100" width="100"/>
                 <input type="radio" id={flock.id} name="flocks" value={flock.id} key={flock.id} checked={flockId === flock.id} onChange={event => setFlockId(parseInt(event.target.value))} 
                 />
                 {priceDisplay(flock, flock.price)}
@@ -175,22 +144,34 @@ export const OrderPage = () => {
             </div>
             <div className="form-group" >
                 {wreaths.map(wreath => 
-                <label htmlFor="wreaths" class="card">
-                <img src={wreath.imgURL} height="100" width="100"/>
-                <input type="radio" id={wreath.id} name="flocks" value={wreath.id} key={wreath.id} checked={wreathId === wreath.id} onChange={event => setWreathId(parseInt(event.target.value))} 
+                <label htmlFor="wreaths" className="card" key={wreath.price}>
+                <img src={wreath.imgURL} alt="wreath options" height="100" width="100"/>
+                <input type="radio" id={wreath.id} name="wreaths" value={wreath.id} key={wreath.id} checked={wreathId === wreath.id} onChange={event => setWreathId(parseInt(event.target.value))} 
                         />
-                {wreath.description} ${wreath.price}
+                {priceDisplay(wreath, wreath.price)}
               </label>)}
             </div>
-            <div>
-                <Pickup />
+            <div className="form-group">
+            <label htmlFor="pickup" key="location"></label>
+            <select
+                defaultValue=""
+                name="pickup"
+                id="locationId"
+                className="form-control"
+                onChange={event => setLocationId(parseInt(event.target.value))}
+            >
+                <option value="">Select a location</option>
+                ${locations.map(location => (
+                    <option key={location.id} id={location.id} value={location.id}>
+                        {location.name}
+                    </option>
+                ))}
+            </select>
             </div>
             <div>
-                <Checkbox
-                    label="Add home delivery for $25"
-                    value={checked}
-                    onChange={handleChange}
-                />  
+            <label>Add home delivery for $25
+            <input type="checkbox" checked={checked} onChange={handleChange} />
+            </label>
             </div>
         </article>
         <article>

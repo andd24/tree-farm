@@ -5,7 +5,7 @@ import locationRepo from "../../repos/locationRepo";
 import "./location.css"
 
 
-export default () => {
+export const LocationExpand = () => {
     const [location, set] = useState({})
     const { locationId } = useParams()
 

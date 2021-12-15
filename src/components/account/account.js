@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react"
-import { useHistory, useParams } from "react-router"
 import userRepo from "../../repos/userRepo"
 import orderRepo from "../../repos/orderRepo"
-import useResourceResolver from "../../hooks/resource"
 import { Link } from "react-router-dom"
-import Order from "./order"
+import { Order } from "./order"
 
 export const AccountPage = () => {
     const [user, setUser] = useState({})
     const [orders, setOrders] = useState([])
-    const history = useHistory()
 
     useEffect(() => {
         userRepo.get(parseInt(localStorage.getItem("farm_user"))).then(user => setUser(user))
@@ -35,7 +32,7 @@ export const AccountPage = () => {
         <Link className="update__link" to="/account/form">Need to update your info?</Link>
         </div>
         <h2>My Orders</h2>
-        <section class="orders">
+        <section className="orders">
         <div className="orders">
             {orders.map(o => <Order key={o.id} order={o} />)}
         </div>

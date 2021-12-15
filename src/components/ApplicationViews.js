@@ -4,9 +4,9 @@ import { LocationList } from "./locations/locationList"
 import { HomePage } from "./homePage"
 import { OrderPage } from "./orders/orderPage"
 import { AccountPage } from "./account/account"
-import LocationExpand from "./locations/LocationExpand"
+import { LocationExpand } from "./locations/LocationExpand"
 import { AccountForm } from "./account/updateAcct"
-import OrderExpand from "./account/OrderExpand"
+import { OrderExpand } from "./account/OrderExpand"
 
 
 export const ApplicationViews = () => {

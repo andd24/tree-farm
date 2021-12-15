@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-export default ({order}) => {
+export const Order = ({order}) => {
   
     return (
         <article className="card location" style={{ width: `18rem` }}>

@@ -4,13 +4,12 @@ import authRepo from "../../repos/authRepo"
 
 export const Register = (props) => {
     const [user, setUser] = useState({})
-    const [email, set] = useState("")
     const conflictDialog = useRef()
 
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return authRepo.getUserByEmail(email)
+        return authRepo.getUserByEmail(user.email)
             .then(user => !!user.length)
     }
     const handleRegister = (e) => {

@@ -20,7 +20,7 @@ export const Login = () => {
                 setUser(user)
             } 
         }
-    }, [email])
+    }, [email, users])
 
     const logIn = () => {
         if (user.password === password) {

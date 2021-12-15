@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import locationRepo from "../../repos/locationRepo"
-import Location from "./location"
+import { Location } from "./location"
 
 export const LocationList = () => {
     const [locations, setLocations] = useState([])

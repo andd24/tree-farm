@@ -1,9 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom"
-// import locationImage from "./location.png"
 import "./location.css"
 
-export default ({location}) => {
+export const Location = ({location}) => {
   
     return (
         <article className="card location" style={{ width: `18rem` }}>

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom"
 import orderRepo from "../../repos/orderRepo";
 import { useHistory } from "react-router"
 
-export default () => {
+export const OrderExpand = () => {
     const [order, set] = useState({})
     const { orderId } = useParams()
     const history = useHistory()
@@ -12,7 +11,7 @@ export default () => {
     useEffect(() => {
         orderRepo.get(orderId)
         .then((o) => {set(o)})
-    }, [])
+    }, [orderId])
 
     const deleteOrder = (id) => {
         orderRepo.delete(id)
