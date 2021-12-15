@@ -1,11 +1,12 @@
 import settings from "./settings";
-import { fetchIt } from "./fetch";
 
 export default {
     async getAll() {
-        return await fetchIt(`${settings.remoteURL}/locations`)
+        const e = await fetch(`${settings.remoteURL}/locations`)
+        return await e.json()
     },
     async get(id) {
-        return await fetchIt(`${settings.remoteURL}/locations/${id}`)
+        const e = await fetch(`${settings.remoteURL}/locations/${id}`)
+        return await e.json()
     }
 }

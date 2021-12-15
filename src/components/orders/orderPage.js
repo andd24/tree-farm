@@ -135,9 +135,9 @@ export const OrderPage = () => {
         <>
         <article>
             <h2>Order A Tree Farm Tree Today</h2>
-            <h3>Choose your desired height and add lights or flocking</h3>
-            <h3>Add a wreath to your order!</h3>
-            <h3>Come on down to one of our convenient locations or have your tree delivered straight to your home!</h3>    
+            <h3>Choose your desired height, lights, and flock options</h3>
+            <h3>Pick a wreath to add to your order</h3>
+            <h3>Choose pick up or delivery from one of our various locations</h3>    
             <div className="form-group">
                 <label htmlFor="heights">Tree sizes</label>
                 <select

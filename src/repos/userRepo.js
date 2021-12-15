@@ -1,18 +1,23 @@
 import settings from "./settings";
-import { fetchIt } from "./fetch";
 
 export default {
     async getAll() {
-        return await fetchIt(`${settings.remoteURL}/users`)
+        const e = await fetch(`${settings.remoteURL}/users`)
+        return await e.json()
     },
     async get(id) {
-        return await fetchIt(`${settings.remoteURL}/users/${id}`)
+        const e = await fetch(`${settings.remoteURL}/users/${id}`)
+        return await e.json()
     },
-    async updateUser(editedUser) {
-        return await fetchIt(
-            `${settings.remoteURL}/users/${editedUser.id}`,
-            "PUT",
-            JSON.stringify(editedUser)
-        )
+    async updateUser(id, editedUser) {
+        const e = await fetch(`${settings.remoteURL}/users/${id}`, {
+            "method": "PUT",
+            "headers": {
+                "Content-Type": "application/json",
+            },
+            "body": JSON.stringify(editedUser)
+        })    
+        return await e.json()
     },
 }
+

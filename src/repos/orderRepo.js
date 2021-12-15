@@ -1,33 +1,41 @@
 import settings from "./settings";
-import { fetchIt } from "./fetch";
 
 export default {
     async getAllHeights() {
-        return await fetchIt(`${settings.remoteURL}/heights`)
+        const e = await fetch(`${settings.remoteURL}/heights`)
+        return await e.json()
     },
     async getAllLights() {
-        return await fetchIt(`${settings.remoteURL}/lights`)
+        const e = await fetch(`${settings.remoteURL}/lights`)
+        return await e.json()
     },
     async getAllFlocks() {
-        return await fetchIt(`${settings.remoteURL}/flocks`)
+        const e = await fetch(`${settings.remoteURL}/flocks`)
+        return await e.json()
     },
     async getAllWreaths() {
-        return await fetchIt(`${settings.remoteURL}/wreaths`)
+        const e = await fetch(`${settings.remoteURL}/wreaths`)
+        return await e.json()
     },
     async addOrder(newOrder) {
-        return await fetchIt(
-            `${settings.remoteURL}/orders`,
-            "POST",
-            JSON.stringify(newOrder)
-        )
+        const e = await fetch(`${settings.remoteURL}/orders`, {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+            },
+            "body": JSON.stringify(newOrder)
+        })
+        return await e.json()
     }, 
     async delete(id) {
         return await fetch(`${settings.remoteURL}/orders/${id}`, {method: "DELETE"})
     },
     async getOrderByUserId(id) {
-        return await fetchIt(`${settings.remoteURL}/orders?userId=${id}`)
+        const e = await fetch(`${settings.remoteURL}/orders?userId=${id}`)
+        return await e.json()
     },
     async get(id) {
-        return await fetchIt(`${settings.remoteURL}/orders/${id}`)
+        const e = await fetch(`${settings.remoteURL}/orders/${id}`)
+        return await e.json()
     }
 }

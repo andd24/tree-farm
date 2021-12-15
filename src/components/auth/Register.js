@@ -1,8 +1,6 @@
 import React, { useRef, useState } from "react"
 import { useHistory } from "react-router-dom"
-import { fetchIt } from "../../repos/fetch"
-import settings from "../../repos/settings"
-
+import authRepo from "../../repos/authRepo"
 
 export const Register = (props) => {
     const [user, setUser] = useState({})
@@ -12,7 +10,7 @@ export const Register = (props) => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetchIt(`${settings.remoteURL}/users?email=${email}`)
+        return authRepo.getUserByEmail(email)
             .then(user => !!user.length)
     }
     const handleRegister = (e) => {
@@ -20,14 +18,7 @@ export const Register = (props) => {
         existingUserCheck()
             .then((userExists) => {
                 if (!userExists) {
-                    fetch("http://localhost:8088/users", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(user)
-                    })
-                        .then(res => res.json())
+                    authRepo.addUser(user)
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
                                 localStorage.setItem("farm_user", createdUser.id)
@@ -72,8 +63,12 @@ export const Register = (props) => {
                     <input onChange={updateUser} type="email" id="email" className="form-control" placeholder="Email address" required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="phone"> Email address </label>
-                    <input onChange={updateUser} type="email" id="phone" className="form-control" placeholder="Phone number" required />
+                    <label htmlFor="phone"> Phone number </label>
+                    <input onChange={updateUser} type="phone" id="phone" className="form-control" placeholder="Phone number" required />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="password"> Password </label>
+                    <input onChange={updateUser} type="password" id="password" className="form-control" placeholder="Password" required />
                 </fieldset>
                 <fieldset>
                     <button type="submit"> Register </button>
