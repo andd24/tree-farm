@@ -16,15 +16,6 @@ export const Order = ({order}) => {
                     </Link>
                 </h5>
             </section>
-            {/* <section>
-                {location.address}
-            </section>
-            <section>
-                {location.phone}
-            </section>
-            <section>
-                {location.hours}
-            </section> */}
         </article>
     )
 }

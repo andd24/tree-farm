@@ -25,7 +25,7 @@ export const Login = () => {
     const logIn = () => {
         if (user.password === password) {
             localStorage.setItem("farm_user", user.id)
-            history.push("/")
+            history.push("/account")
         }
         else {
             window.alert("Invalid email or password...please try again")
@@ -36,8 +36,7 @@ export const Login = () => {
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={logIn}>
-                    <h1>Tree Farm</h1>
-                    <h2>Please sign in</h2>
+                    <h2>Please sign in to place an order or view your account!</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"

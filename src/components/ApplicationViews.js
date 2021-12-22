@@ -7,6 +7,8 @@ import { AccountPage } from "./account/account"
 import { LocationExpand } from "./locations/LocationExpand"
 import { AccountForm } from "./account/updateAcct"
 import { OrderExpand } from "./account/OrderExpand"
+import { Login } from "./auth/Login"
+import { Register } from "./auth/Register"
 
 
 export const ApplicationViews = () => {
@@ -32,6 +34,12 @@ export const ApplicationViews = () => {
             </Route>
             <Route path="/account/:orderId(\d+)">
                 <OrderExpand />
+            </Route>
+            <Route path="/login">
+                <Login />
+            </Route>
+            <Route path="/register">
+                <Register />
             </Route>
         </>
     )

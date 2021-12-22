@@ -22,14 +22,14 @@ export const OrderExpand = () => {
         <>
             <div className="jumbotron detailCard">
                 <h1 className="display-4">{order.date}</h1>
-                {/* <p className="lead detailCard__lead">
-                {<Link to={`/orders`}>Place your order today!</Link>}
-                </p>
-                <img alt="location icon" src={location.imgURL} className="icon--location" height="250" width="350"/>
-                <hr className="my-4" /> */}
+                {/* <p className="lead detailCard__info">
+                    {
+                        `${order.height.height} foot tree with ${order.light.description}, ${order.flock.description}, and ${order.wreath.description}`
+                    }
+                </p> */}
                 <p className="lead detailCard__info">
                     {
-                        `$${order.total}`
+                        `$${order.total}` 
                     }
                 </p>
                 <button type="button"

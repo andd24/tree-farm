@@ -1,14 +1,19 @@
 .navbar {
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: left;
-    background-color: rgb(16, 65, 16);
-    color: white;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: white;
+    color: black;
+    height: max-content;
+    font-size: 20px;
+    justify-content: space-between;
 }
 
 .navbar__item {
-    flex-basis: 20%;
+    flex-basis: auto;
     list-style-type: none;
+
+    padding: 10px;
 }
 a:link {
     color: green;
@@ -29,7 +34,15 @@ a:link {
   }
   
   a:active {
-    color: yellow;
+    color: pink;
     background-color: transparent;
     text-decoration: underline;
   }
+
+.logo {
+  flex: .15 1 0;
+  margin: none;
+  padding: 10px;
+}
+
+  

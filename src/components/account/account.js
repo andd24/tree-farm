@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import userRepo from "../../repos/userRepo"
 import orderRepo from "../../repos/orderRepo"
-import { Link } from "react-router-dom"
+import { Link, Route, Redirect } from "react-router-dom"
 import { Order } from "./order"
 
 export const AccountPage = () => {
@@ -13,6 +13,7 @@ export const AccountPage = () => {
         orderRepo.getOrderByUserId(parseInt(localStorage.getItem("farm_user"))).then(orders => setOrders(orders))
     }, []) 
 
+    if (localStorage.getItem("farm_user")) {
     return (
         <>  
         <h2>My Account</h2>
@@ -38,5 +39,8 @@ export const AccountPage = () => {
         </div>
         </section>
         </>
-    )
+    )}
+    else {
+        return <Redirect to="/login" />;
+      }
 }   

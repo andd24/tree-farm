@@ -13,12 +13,28 @@ export const AccountForm = () => {
     }, [])
 
     const updateUserInfo = () => {
+        let updatedAddress = ""
+        let updatedPhone = ""
+
+        if (newAddress) {
+            updatedAddress = newAddress
+        }
+        else {
+            updatedAddress = user.address
+        }
+
+        if (newPhone) {
+            updatedPhone = newPhone
+        }
+        else {
+            updatedPhone = user.phone
+        }
 
         const updatedUser = {
             name: user.name,
-            address: newAddress,
+            address: updatedAddress,
             email: user.email,
-            phone: newPhone
+            phone: updatedPhone
         }
 
         userRepo.updateUser(user.id, updatedUser)
@@ -51,7 +67,7 @@ export const AccountForm = () => {
                         />
                 </div>
             </fieldset>
-            <button className="btn btn-primary" onClick={() => updateUserInfo()}>
+            <button type="button" className="btn btn-primary" onClick={() => updateUserInfo()}>
                 Submit
             </button>
         </form>

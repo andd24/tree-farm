@@ -31,11 +31,11 @@ export default {
         return await fetch(`${settings.remoteURL}/orders/${id}`, {method: "DELETE"})
     },
     async getOrderByUserId(id) {
-        const e = await fetch(`${settings.remoteURL}/orders?userId=${id}`)
+        const e = await fetch(`${settings.remoteURL}/orders?userId=${id}&_expand=height&_expand=light&_expand=flock&_expand=wreath`)
         return await e.json()
     },
     async get(id) {
-        const e = await fetch(`${settings.remoteURL}/orders/${id}`)
+        const e = await fetch(`${settings.remoteURL}/orders/${id}?_expand=height&_expand=light&_expand=flock&_expand=wreath`)
         return await e.json()
     }
 }

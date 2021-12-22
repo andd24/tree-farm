@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { ApplicationViews } from "./ApplicationViews";
 import { NavBar } from "./nav/NavBar";
 import { Login } from "./auth/Login";
@@ -10,29 +10,27 @@ export const TreeFarm = () => (
   <>
     <Route
       render={() => {
-        if (localStorage.getItem("farm_user")) {
+        // if (localStorage.getItem("farm_user")) {
           return (
             <>
-              <NavBar />
-            <section className="title"> 
-              <img src="https://www.nicepng.com/png/detail/111-1118713_pdbottom-paint-fir-tree-silhouette.png" alt="tree silhouette"height="50" width="75" />
-              <h1>Tree Farm</h1>
-            </section>  
-            <ApplicationViews />
+              <NavBar /> 
+              <ApplicationViews />
             
             </>
           );
-        } else {
-          return <Redirect to="/login" />;
-        }
-      }}
-    />
+      //   } else {
+      //     return <Redirect to="/login" />;
+      //   }
+      // }
+    }} />
 
-    <Route path="/login">
+    {/* <Route path="/login">
       <Login />
     </Route>
     <Route path="/register">
       <Register />
-    </Route>
+    </Route> */}
   </>
 );
+
+// https://www.nicepng.com/png/detail/111-1118713_pdbottom-paint-fir-tree-silhouette.png

@@ -5,9 +5,9 @@ import "./location.css"
 export const Location = ({location}) => {
   
     return (
-        <article className="card location" style={{ width: `18rem` }}>
+        <article className="location" >
             <section className="card-body">
-                <h5 className="card-title">
+                <h1 className="card-title">
                     <Link className="card-link"
                         to={{
                             pathname: `/locations/${location.id}`,
@@ -15,7 +15,7 @@ export const Location = ({location}) => {
                         }}>
                         {location.name}
                     </Link>
-                </h5>
+                </h1>
             </section>
             <section>
                 {location.address}

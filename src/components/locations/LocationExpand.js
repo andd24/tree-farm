@@ -16,19 +16,16 @@ export const LocationExpand = () => {
 
     return (
         <>
-            <div className="jumbotron detailCard">
-                <h1 className="display-4">{location.name}</h1>
-                <p className="lead detailCard__lead">
-                {<Link to={`/orders`}>Place your order today!</Link>}
-                </p>
-                <img alt="location icon" src={location.imgURL} className="icon--location" height="250" width="350"/>
+            <div>
+                <h1 className="heading">{location.name}</h1>
+
+                <img alt="location icon" src={location.imgURL} className="icon--location" />
+                
+                <p className="tag">{location.address}</p>
+                <p className="tag">{location.hours}</p>
                 <hr className="my-4" />
-                <p className="lead detailCard__info">
-                    {
-                        `We are located at ${location.address} and are here
-                        ${location.hours} so come by and grab a tree, a handmade 
-                        wreath, and cup of hot cocoa.`
-                    }
+                <p className="tag">
+                {<Link to={`/orders`}>Place your order today!</Link>}
                 </p>
             </div>
         </>

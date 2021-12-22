@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import locationRepo from "../../repos/locationRepo"
 import orderRepo from "../../repos/orderRepo"
 import { useHistory } from "react-router"
+import { Redirect } from "react-router-dom"
 import "./orderPage.css"
 
 export const OrderPage = () => {
@@ -99,7 +100,7 @@ export const OrderPage = () => {
                 .then(() => history.push("/account"))
         }
     }
-
+    if (localStorage.getItem("farm_user")) {
     return (
         <>
         <article>
@@ -191,5 +192,8 @@ export const OrderPage = () => {
 
 
         </>
-    )
+    )}
+    else {
+        return <Redirect to="/login" />;
+    }
 }
