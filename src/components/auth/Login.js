@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
-import authRepo from "../../repos/authRepo";
+import authRepo from "../../repos/authRepo"
+import "./Login.css"
 
 export const Login = () => {
     const [users, setUsers] = useState([])
@@ -33,10 +34,13 @@ export const Login = () => {
     }
 
     return (
-        <main className="container--login">
+        <>
+        <img className="image" src="https://www.rbgrant.co.uk/wp-content/uploads/banner-commercial-christmas-lights.jpg" alt="lights" />
+        <main className="container">
             <section>
                 <form className="form--login" onSubmit={logIn}>
                     <h2>Please sign in to place an order or view your account!</h2>
+                    <div className="box"> 
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"
@@ -58,11 +62,16 @@ export const Login = () => {
                             Sign in
                         </button>
                     </fieldset>
+                    </div>
                 </form>
             </section>
-            <section className="link--register">
+            <section className="link">
                 <Link to="/register">Not a member yet?</Link>
             </section>
+            <div className="foot">
+                <img className="logo" src="images/pngfind.com-pine-tree-silhouette-png-47958.png" alt="logo" />
+            </div>
         </main>
+        </>
     )
 }

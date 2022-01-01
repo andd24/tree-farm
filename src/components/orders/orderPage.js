@@ -103,11 +103,9 @@ export const OrderPage = () => {
     if (localStorage.getItem("farm_user")) {
     return (
         <>
-        <article>
-            <h2>Order A Tree Farm Tree Today</h2>
-            <h3>Choose your desired height, lights, and flock options</h3>
-            <h3>Pick a wreath to add to your order</h3>
-            <h3>Choose pick up or delivery from one of our various locations</h3>    
+        <img className="image" src="https://partymancatering.com/wp-content/uploads/2019/10/hire-christmas-trees-by-twilight-trees-banner.jpg" alt="trees" />
+            <article className="orderPage">
+            <h2>Choose your desired height, lights, and flock options</h2>
             <div className="form-group">
                 <label htmlFor="heights" key="height">Tree sizes</label>
                 <select
@@ -143,6 +141,7 @@ export const OrderPage = () => {
                 {priceDisplay(flock, flock.price)}
               </label>)}
             </div>
+            <h2>Pick a wreath to add to your order</h2>
             <div className="form-group" >
                 {wreaths.map(wreath => 
                 <label htmlFor="wreaths" className="card" key={wreath.price}>
@@ -152,6 +151,7 @@ export const OrderPage = () => {
                 {priceDisplay(wreath, wreath.price)}
               </label>)}
             </div>
+            <h2>Choose pick up or delivery from one of our various locations</h2>    
             <div className="form-group">
             <label htmlFor="pickup" key="location"></label>
             <select
@@ -174,8 +174,6 @@ export const OrderPage = () => {
             <input type="checkbox" checked={checked} onChange={handleChange} />
             </label>
             </div>
-        </article>
-        <article>
             <div>
                 <h3>
                    Total: ${subtotal(heightId, lightId, flockId, wreathId, checked)} 
@@ -189,8 +187,6 @@ export const OrderPage = () => {
             </button>
             </div>
         </article>
-
-
         </>
     )}
     else {

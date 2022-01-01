@@ -14,12 +14,15 @@ export const LocationExpand = () => {
        locationRepo.get(locationId).then(set)
     }, [locationId])
 
+
+
     return (
         <>
             <div>
-                <h1 className="heading">{location.name}</h1>
-
                 <img alt="location icon" src={location.imgURL} className="image" />
+                <h1 className="heading">{location.name}</h1>
+            </div>
+            <div>
                 <p className="tag">
                 {<Link to={`/orders`}>Place your order today!</Link>}
                 </p>
@@ -27,7 +30,9 @@ export const LocationExpand = () => {
                 <p className="tag">{location.hours}</p>
                 <hr className="my-4" />
                 <p className="tag">Get Directions!</p>
-                <MapContainer initialCenter=""/>
+                <div className="map" >
+                    <MapContainer />
+                </div>
             </div>
         </>
     )

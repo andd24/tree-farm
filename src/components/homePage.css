@@ -1,4 +1,111 @@
-.image {
-    display: block;
-    width: 100%;
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+/* Container needed to position the button. Adjust the width as needed */
+.container {
+    position: relative;
+    width: 100%;
+  }
+  
+  /* Make the image responsive */
+  .container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Style the button and place it in the middle of the container/image */
+  .container .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 50px;
+    font-family: 'Amatic SC', cursive;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .container .btn:hover {
+    background-color: silver;
+  }
+
+.item {
+    font-size: 100px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.trees {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1px;
+    margin-left: 50px;
+    margin-right: 50px; 
+}
+
+.image {
+    margin-right: 50px
+}
+.textbox {
+    background-color: white;
+    margin-left: 50px;
+    font-size: 30px;
+    font-family: 'Playfair Display', serif;
+}
+
+.farm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 75px;
+    margin-left: 50px;
+    margin-right: 50px; 
+}
+
+.image2 {
+    margin-left: 50px
+}
+.textbox2 {
+    background-color: white;
+    margin-right: 50px;
+    font-size: 30px;
+    font-family: 'Playfair Display', serif;
+}
+
+.shop {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 75px;
+    margin-left: 50px;
+    margin-right: 50px; 
+}
+
+.image3 {
+    margin-right: 50px
+}
+.textbox3 {
+    background-color: white;
+    margin-left: 50px;
+    font-size: 30px;
+    font-family: 'Playfair Display', serif;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-left: 60px;
+}
+

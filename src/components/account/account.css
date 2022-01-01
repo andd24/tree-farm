@@ -1,0 +1,33 @@
+.image {
+    width: 100%;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-style: double;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: none;
+}
+
+.update {
+    text-align: center;
+    font-size: 30px;
+}
+
+.orders {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.order {
+    font-size: 40px;
+    font-family: 'Amatic SC', cursive;
+}
+

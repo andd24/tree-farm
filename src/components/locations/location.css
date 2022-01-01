@@ -1,14 +1,14 @@
 .locations {
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    padding: auto;
+    padding: 50px;
     margin: 75px;
 }
 
 .location {
-    
+    margin: 50px;
     box-sizing: border-box;
     box-shadow: 12px 12px 2px 1px lightslategrey;
     font-size: 15px;
@@ -30,4 +30,11 @@
 .image {
     display: block;
     width: 100%;
+}
+
+.map {
+    display: block;
+    width: 75%;
+    margin-left: 30px;
+    margin-right: 30px;
 }

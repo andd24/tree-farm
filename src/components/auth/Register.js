@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react"
 import { useHistory } from "react-router-dom"
 import authRepo from "../../repos/authRepo"
+import "./Login.css"
 
 export const Register = (props) => {
     const [user, setUser] = useState({})
@@ -39,6 +40,8 @@ export const Register = (props) => {
 
 
     return (
+        <>
+        <img src="https://www.rbgrant.co.uk/wp-content/uploads/banner-commercial-christmas-lights.jpg" alt="lights" />
         <main style={{ textAlign: "center" }}>
             <dialog className="dialog dialog--password" ref={conflictDialog}>
                 <div>Account with that email address already exists</div>
@@ -46,7 +49,8 @@ export const Register = (props) => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Tree Farm</h1>
+                <h1 className="heading">Please Register for Tree Farm</h1>
+                <div className="box">
                 <fieldset>
                     <label htmlFor="name"> Full Name </label>
                     <input onChange={updateUser}
@@ -70,9 +74,12 @@ export const Register = (props) => {
                     <input onChange={updateUser} type="password" id="password" className="form-control" placeholder="Password" required />
                 </fieldset>
                 <fieldset>
-                    <button type="submit"> Register </button>
+                    <button className="submit" type="submit"> Register </button>
                 </fieldset>
+                </div>
             </form>
         </main>
+        <img className="logo" src="images/pngfind.com-pine-tree-silhouette-png-47958.png" alt="logo" />
+        </>
     )
 }
