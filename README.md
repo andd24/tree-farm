@@ -21,7 +21,7 @@ This application build was undertaken with the intention to gain practical exper
 
 #### ERD
 
-<img src="./images/erd.png" alt="erd" />
+<img src="public/images/erd.png" alt="erd" />
 
 #### by Ashley Dickey
 
