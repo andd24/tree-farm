@@ -1,6 +1,9 @@
 .scroll {
   font-family: 'Amatic SC', cursive;
   font-size: 20px;
+  font-weight: bold;
+  background-color: black;
+  color: white;
 }
 
 .navbar {
@@ -12,12 +15,14 @@
     height: max-content;
     font-size: 25px;
     justify-content: space-between;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 .navbar__item {
     flex-basis: auto;
     list-style-type: none;
-    padding: 25px;
+    padding: 10px;
 }
 a:link {
     color: green;

@@ -35,12 +35,16 @@ export const Login = () => {
 
     return (
         <>
-        <img className="image" src="https://www.rbgrant.co.uk/wp-content/uploads/banner-commercial-christmas-lights.jpg" alt="lights" />
+        {/* <img className="image" src="https://www.rbgrant.co.uk/wp-content/uploads/banner-commercial-christmas-lights.jpg" alt="lights" /> */}
         <main className="container">
             <section>
                 <form className="form--login" onSubmit={logIn}>
-                    <h2>Please sign in to place an order or view your account!</h2>
-                    <div className="box"> 
+                    <h2 className="heading">Please sign in to place an order or view your account!</h2>
+                    <section className="box">
+                    <div className="input">
+                        <img className="logo" src="./images/pngfind.com-pine-tree-silhouette-png-47958.png" alt="logo" />
+                    </div>
+                    <div className="input"> 
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"
@@ -58,19 +62,17 @@ export const Login = () => {
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
+                        <button className="button" type="submit">
                             Sign in
                         </button>
                     </fieldset>
                     </div>
+                    </section>
                 </form>
             </section>
             <section className="link">
                 <Link to="/register">Not a member yet?</Link>
             </section>
-            <div className="foot">
-                <img className="logo" src="images/pngfind.com-pine-tree-silhouette-png-47958.png" alt="logo" />
-            </div>
         </main>
         </>
     )

@@ -22,6 +22,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: black;
+    border-style: double;
+    margin: 40px;
+    background-color: whitesmoke;
   }
 
   h2 {
@@ -32,9 +36,30 @@
   .form-group {
       display: flex;
       flex-direction: row;
+      font-size: 30px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      font-family: 'Playfair Display', serif;
   }
+
+  .h3 {
+      font-size: 30px;
+      font-family: 'Playfair Display', serif;
+  }
+
   .card {
       display: flex;
       flex-direction: column;
       padding: 10px
+  }
+
+  .form-control {
+    font-size: 30px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .button {
+    font-size: 40px;
+    cursor: pointer;
   }

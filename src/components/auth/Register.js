@@ -41,16 +41,16 @@ export const Register = (props) => {
 
     return (
         <>
-        <img src="https://www.rbgrant.co.uk/wp-content/uploads/banner-commercial-christmas-lights.jpg" alt="lights" />
         <main style={{ textAlign: "center" }}>
             <dialog className="dialog dialog--password" ref={conflictDialog}>
                 <div>Account with that email address already exists</div>
                 <button className="button--close" onClick={e => conflictDialog.current.close()}>Close</button>
             </dialog>
 
-            <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="heading">Please Register for Tree Farm</h1>
-                <div className="box">
+            <form className="container" onSubmit={handleRegister}>
+                <h2 className="heading">Please Register for Tree Farm</h2>
+                <div className="register">
+                    <div className="input">
                 <fieldset>
                     <label htmlFor="name"> Full Name </label>
                     <input onChange={updateUser}
@@ -74,12 +74,15 @@ export const Register = (props) => {
                     <input onChange={updateUser} type="password" id="password" className="form-control" placeholder="Password" required />
                 </fieldset>
                 <fieldset>
-                    <button className="submit" type="submit"> Register </button>
+                    <button className="button" type="submit"> Register </button>
                 </fieldset>
+                </div>
+                <div className="input">
+                        <img className="logo" src="./images/pngfind.com-pine-tree-silhouette-png-47958.png" alt="logo" />
+                    </div>
                 </div>
             </form>
         </main>
-        <img className="logo" src="images/pngfind.com-pine-tree-silhouette-png-47958.png" alt="logo" />
         </>
     )
 }

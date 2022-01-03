@@ -41,6 +41,8 @@ export const OrderPage = () => {
         setChecked(!checked)
     }
 
+    const cities = locations.filter(location => location.id > 1)
+
     const subtotal = (heightId, lightId, flockId, wreathId, checked) => {
         let subtotal = 0
         let foundHeight = heights.find(height => height.id === heightId)
@@ -107,7 +109,7 @@ export const OrderPage = () => {
             <article className="orderPage">
             <h2>Choose your desired height, lights, and flock options</h2>
             <div className="form-group">
-                <label htmlFor="heights" key="height">Tree sizes</label>
+                <label htmlFor="heights" key="height">Tree sizes.....</label>
                 <select
                     defaultValue=""
                     name="height"
@@ -115,7 +117,7 @@ export const OrderPage = () => {
                     className="form-control"
                     onChange={event => setHeightId(parseInt(event.target.value))}
                 >
-                    <option value="">Select a height</option>
+                    <option className="dropdown" value="">Select a height</option>
                     {heights.map(height => (
                         <option key={height.id} id={height.id} value={height.id}>
                             {height.height} foot tree --- ${height.price}
@@ -153,7 +155,7 @@ export const OrderPage = () => {
             </div>
             <h2>Choose pick up or delivery from one of our various locations</h2>    
             <div className="form-group">
-            <label htmlFor="pickup" key="location"></label>
+            <label htmlFor="pickup" key="location">Locations......</label>
             <select
                 defaultValue=""
                 name="pickup"
@@ -161,29 +163,29 @@ export const OrderPage = () => {
                 className="form-control"
                 onChange={event => setLocationId(parseInt(event.target.value))}
             >
-                <option value="">Select a location</option>
-                ${locations.map(location => (
+                <option value="">Select a city</option>
+                ${cities.map(location => (
                     <option key={location.id} id={location.id} value={location.id}>
                         {location.name}
                     </option>
                 ))}
             </select>
             </div>
-            <div>
+            <div className="form-group">
             <label>Add home delivery for $25
             <input type="checkbox" checked={checked} onChange={handleChange} />
             </label>
             </div>
-            <div>
-                <h3>
-                   Total: ${subtotal(heightId, lightId, flockId, wreathId, checked)} 
-                </h3>
+            <div className="form-group">
+                <h2>
+                    Total: ${subtotal(heightId, lightId, flockId, wreathId, checked)} 
+                </h2>
             </div>
-            <div>
+            <div className="form-group">
             <button type="submit"
                 onClick={makeOrder}
                 disabled={saveEnabled}
-                className="btn btn-primary"> Submit 
+                className="button"> Submit 
             </button>
             </div>
         </article>

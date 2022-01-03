@@ -13,6 +13,7 @@ export const HomePage = () => {
             {/* <img className="item" src="https://seesugar.com/wp-content/uploads/2020/09/christmas-tree-farms-avery-county.jpg" alt="trees with snow"/> */}
             <h1 className="item">Welcome to the Farm</h1>
             </div>
+            <div className="info" >
             <div className="trees">
                 <img className="image" src="https://abc17news.b-cdn.net/abc17news.com/2021/12/S179063956-300.jpg" alt="tree with tag" /> 
                 <article className="textbox">
@@ -33,10 +34,10 @@ export const HomePage = () => {
                     <Link to="/locations"> various cities </Link> throughout the Southeast.
                 </article>
             </div>
+            </div>
             <div className="footer">
-                <img src="https://ncchristmastrees.com/wp-content/uploads/NNCTAlogo-2019.png" alt="" />
-                <img src="images/pngfind.com-pine-tree-silhouette-png-47958.png" alt="logo" height="200" width="200" />
-                <img src="https://i0.wp.com/realchristmastrees.org/wp-content/uploads/2020/02/NCTA-65th-Logo.jpg?fit=383%2C195&ssl=1" alt="" /> ``
+                <img src="https://ncchristmastrees.com/wp-content/uploads/NNCTAlogo-2019.png" alt="nc tree assoc logo" height="150" width="200" />
+                <img src="https://i0.wp.com/realchristmastrees.org/wp-content/uploads/2020/02/NCTA-65th-Logo.jpg?fit=383%2C195&ssl=1" alt="us tree assoc logo" height="150" width="200"/> ``
             </div>
     </section>
     </>

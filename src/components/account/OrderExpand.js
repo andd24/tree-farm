@@ -20,13 +20,13 @@ export const OrderExpand = () => {
 
     return (
         <>
-            <div className="jumbotron detailCard">
-                <h1 className="display-4">{order.date}</h1>
-                {/* <p className="lead detailCard__info">
-                    {
+            <div className="order">
+                <h1 className="heading">Order #{order.id}</h1>
+                <p className="lead detailCard__info">
+                    {/* {
                         `${order.height.height} foot tree with ${order.light.description}, ${order.flock.description}, and ${order.wreath.description}`
-                    }
-                </p> */}
+                    }  */}
+                </p>
                 <p className="lead detailCard__info">
                     {
                         `$${order.total}` 

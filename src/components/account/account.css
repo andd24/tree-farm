@@ -12,6 +12,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     padding: none;
+    background-color: whitesmoke;
 }
 
 .update {
@@ -29,5 +30,6 @@
 .order {
     font-size: 40px;
     font-family: 'Amatic SC', cursive;
+    background-color: whitesmoke;
 }
 

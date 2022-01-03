@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import userRepo from "../../repos/userRepo"
 import { useHistory } from "react-router"
+import "../auth/Login.css"
 
 export const AccountForm = () => {
     const [user, setUser] = useState({})
@@ -43,8 +44,10 @@ export const AccountForm = () => {
     }
 
     return (
-        <form className="form">
-            <h2 className="form__title">Update Account Info</h2>
+        <>
+        <main className="container" >
+        <h2 className="heading">Update Account Info</h2>
+        <form className="register">
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="address">Address:</label>
@@ -66,10 +69,13 @@ export const AccountForm = () => {
                         placeholder={user.phone}
                         />
                 </div>
-            </fieldset>
-            <button type="button" className="btn btn-primary" onClick={() => updateUserInfo()}>
+                <button type="button" className="button" onClick={() => updateUserInfo()}>
                 Submit
             </button>
+            </fieldset>
+
         </form>
+        </main>
+        </>
     )
 }
