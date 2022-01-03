@@ -21,7 +21,7 @@ This application build was undertaken with the intention to gain practical exper
 
 #### ERD
 
-<img src="./images/Screen Shot 2022-01-03 at 2.08.32 PM.png" alt="erd">
+<img src="images/Screen Shot 2022-01-03 at 2.08.32 PM.png" alt="erd">
 
 #### by Ashley Dickey
 
