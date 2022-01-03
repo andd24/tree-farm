@@ -37,5 +37,9 @@ export default {
     async get(id) {
         const e = await fetch(`${settings.remoteURL}/orders/${id}?_expand=height&_expand=light&_expand=flock&_expand=wreath`)
         return await e.json()
+    },
+    async getAll() {
+        const e = await fetch(`${settings.remoteURL}/orders?_expand=height&_expand=light&_expand=flock&_expand=wreath`)
+        return await e.json()
     }
 }

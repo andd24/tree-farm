@@ -47,7 +47,7 @@ export const AccountForm = () => {
         <>
         <main className="container" >
         <h2 className="heading">Update Account Info</h2>
-        <form className="register">
+        <form className="box2">
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="address">Address:</label>

@@ -49,7 +49,7 @@ export const Register = (props) => {
 
             <form className="container" onSubmit={handleRegister}>
                 <h2 className="heading">Please Register for Tree Farm</h2>
-                <div className="register">
+                <div className="box2">
                     <div className="input">
                 <fieldset>
                     <label htmlFor="name"> Full Name </label>

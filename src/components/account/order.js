@@ -12,9 +12,12 @@ export const Order = ({order}) => {
                             pathname: `/account/${order.id}`,
                             state: { order: order }
                         }}>
-                        Order# {order.id}
+                        Order# {order.id} 
                     </Link>
                 </h5>
+                <div className="card-info" >{order.date}</div>
+                <div className="card-info" >{order.height.height} ft tree with {order.light.description}, {order.flock.description} and {order.wreath.description}</div>
+                <div className="card-info" >${order.total}</div>
             </section>
         </article>
     )

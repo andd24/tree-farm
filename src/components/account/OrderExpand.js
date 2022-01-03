@@ -2,44 +2,71 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import orderRepo from "../../repos/orderRepo";
 import { useHistory } from "react-router"
+import { Link } from "react-router-dom";
+import "../auth/Login.css"
 
 export const OrderExpand = () => {
     const [order, set] = useState({})
+    const [heights, setHeights] = useState([])
     const { orderId } = useParams()
     const history = useHistory()
 
     useEffect(() => {
-        orderRepo.get(orderId)
-        .then((o) => {set(o)})
+        orderRepo.get(orderId).then(set)
     }, [orderId])
+
+    useEffect(() => {
+        
+        orderRepo.getAllLights()
+        orderRepo.getAllFlocks()
+        orderRepo.getAllWreaths()
+    }, [])
 
     const deleteOrder = (id) => {
         orderRepo.delete(id)
         history.push("/account")
     } 
 
+    const findHeight = () => {
+        orderRepo.getAllHeights().then(setHeights)
+        let foundHeight = heights.find(height => height.id === order.heightId)
+        return foundHeight.height
+    }
+
     return (
         <>
-            <div className="order">
-                <h1 className="heading">Order #{order.id}</h1>
-                <p className="lead detailCard__info">
+        <main className="container">
+            <div>
+            <h2 className="heading">Order #{order.id}</h2>
+            <div className="box2">
+            <p >
+                    {
+                        `${order.date} ` 
+                    }
+                </p>
+                <p >
                     {/* {
-                        `${order.height.height} foot tree with ${order.light.description}, ${order.flock.description}, and ${order.wreath.description}`
+                        `${order.height.height} foot tree `
                     }  */}
                 </p>
-                <p className="lead detailCard__info">
+                <p >
                     {
-                        `$${order.total}` 
+                        `$${order.total} ` 
                     }
                 </p>
                 <button type="button"
-                        className="btn btn-success "
-                        key={order.id}
-                        value={order.id}
-                        onClick={() => { deleteOrder(order.id) } }>
+                        className="button"
+                        key={orderId}
+                        value={orderId}
+                        onClick={() => { deleteOrder(orderId) } }>
                     Delete
                 </button>
             </div>
+            <section className="link">
+                <Link to="/account">back to my account</Link>
+            </section>
+            </div>
+            </main>
         </>
     )
 }
