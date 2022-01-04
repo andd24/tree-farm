@@ -9,9 +9,9 @@
     border-style: double;
     margin-left: 150px;
     margin-right: 150px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: none;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 50px;
     background-color: whitesmoke;
 }
 
@@ -31,6 +31,8 @@
     font-size: 40px;
     font-family: 'Amatic SC', cursive;
     background-color: whitesmoke;
+    margin: 25px;
+    padding: 30px;
 }
 
 .card-info {

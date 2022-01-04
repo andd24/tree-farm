@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
+import "./location.css"
 
 const mapStyles = {
   width: '75%',
@@ -32,7 +33,7 @@ onClose = props => {
 };
   render() {
     return (
-      <Map
+      <Map className="map"
         google={this.props.google}
         zoom={14}
         style={mapStyles}
@@ -45,7 +46,7 @@ onClose = props => {
       >
                 <Marker
           onClick={this.onMarkerClick}
-          name={'Kenyatta International Convention Centre'}
+          name={'Tree Farm'}
         />
         <InfoWindow
           marker={this.state.activeMarker}

@@ -128,7 +128,7 @@ export const OrderPage = () => {
             <div className="form-group">
                 {lights.map(light => 
                 <label htmlFor="lights" className="card" key={light.price}>
-                <img src={light.imgURL} alt="light options" height="100" width="100" value={light.id} />
+                <img src={light.imgURL} alt="light options" height="200" width="200" value={light.id} />
                 <input type="radio" id={light.id} name="lights" value={light.id} key={light.id} checked={lightId === light.id} onChange={event => setLightId(parseInt(event.target.value))}
                  />
                 {priceDisplay(light, light.price)}
@@ -137,7 +137,7 @@ export const OrderPage = () => {
             <div className="form-group" >
                 {flocks.map(flock => 
                 <label htmlFor="flocks" className="card" key={flock.price}>
-                <img src={flock.imgURL} alt="flock options" height="100" width="100"/>
+                <img src={flock.imgURL} alt="flock options" height="200" width="200"/>
                 <input type="radio" id={flock.id} name="flocks" value={flock.id} key={flock.id} checked={flockId === flock.id} onChange={event => setFlockId(parseInt(event.target.value))} 
                 />
                 {priceDisplay(flock, flock.price)}
@@ -147,7 +147,7 @@ export const OrderPage = () => {
             <div className="form-group" >
                 {wreaths.map(wreath => 
                 <label htmlFor="wreaths" className="card" key={wreath.price}>
-                <img src={wreath.imgURL} alt="wreath options" height="100" width="100"/>
+                <img src={wreath.imgURL} alt="wreath options" height="200" width="200"/>
                 <input type="radio" id={wreath.id} name="wreaths" value={wreath.id} key={wreath.id} checked={wreathId === wreath.id} onChange={event => setWreathId(parseInt(event.target.value))} 
                         />
                 {priceDisplay(wreath, wreath.price)}

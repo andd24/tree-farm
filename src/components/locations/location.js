@@ -17,7 +17,7 @@ export const Location = ({location}) => {
                         {location.name}
                     </Link>
                 </div>
-            <div className="loc-text"></div>
+            <div className="loc-text">{location.description}</div>
         </div>
         </> 
     )

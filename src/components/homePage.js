@@ -7,7 +7,7 @@ export const HomePage = () => {
     <section className="home">
         <div class="container">
             <img src="https://seesugar.com/wp-content/uploads/2020/09/christmas-tree-farms-avery-county.jpg" alt="Snow" />
-            <button className="btn"><Link className="button" to="/orders">Order a tree today!</Link></button>
+            <button className="btn"><Link to="/orders">Order a tree today!</Link></button>
         </div>
             <div className="title">
             {/* <img className="item" src="https://seesugar.com/wp-content/uploads/2020/09/christmas-tree-farms-avery-county.jpg" alt="trees with snow"/> */}
@@ -34,10 +34,11 @@ export const HomePage = () => {
                     <Link to="/locations"> various cities </Link> throughout the Southeast.
                 </article>
             </div>
+            <p className="ask">Wanna learn more about where christmas trees come from?</p>
+            <div className="more">
+                <a href="https://ncchristmastrees.com" ><img src="https://ncchristmastrees.com/wp-content/uploads/NNCTAlogo-2019.png" alt="nc tree assoc logo" height="150" width="200" /></a>
+                <a href="https://realchristmastrees.org"><img src="https://i0.wp.com/realchristmastrees.org/wp-content/uploads/2020/02/NCTA-65th-Logo.jpg?fit=383%2C195&ssl=1" alt="us tree assoc logo" height="150" width="200"/></a>
             </div>
-            <div className="footer">
-                <img src="https://ncchristmastrees.com/wp-content/uploads/NNCTAlogo-2019.png" alt="nc tree assoc logo" height="150" width="200" />
-                <img src="https://i0.wp.com/realchristmastrees.org/wp-content/uploads/2020/02/NCTA-65th-Logo.jpg?fit=383%2C195&ssl=1" alt="us tree assoc logo" height="150" width="200"/> ``
             </div>
     </section>
     </>

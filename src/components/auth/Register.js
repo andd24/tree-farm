@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react"
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 import authRepo from "../../repos/authRepo"
 import "./Login.css"
 
@@ -78,7 +78,7 @@ export const Register = (props) => {
                 </fieldset>
                 </div>
                 <div className="input">
-                        <img className="logo" src="./images/pngfind.com-pine-tree-silhouette-png-47958.png" alt="logo" />
+                        <Link to="/"><img className="logo" src="./images/pngfind.com-pine-tree-silhouette-png-47958.png" alt="logo" /></Link>
                     </div>
                 </div>
             </form>

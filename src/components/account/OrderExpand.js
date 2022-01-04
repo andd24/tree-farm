@@ -45,11 +45,6 @@ export const OrderExpand = () => {
                     }
                 </p>
                 <p >
-                    {/* {
-                        `${order.height.height} foot tree `
-                    }  */}
-                </p>
-                <p >
                     {
                         `$${order.total} ` 
                     }

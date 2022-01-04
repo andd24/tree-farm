@@ -106,11 +106,16 @@
     font-family: 'Playfair Display', serif;
 }
 
-.footer {
+.ask {
+    text-align: center;
+    font-size: 100px;
+    font-family: 'Amatic SC', cursive;
+}
+
+.more {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding-top: 40px;
-    padding-left: 60px;
+    justify-content: space-around;
+    margin-bottom: 100px;
 }
 

@@ -4,6 +4,19 @@ import ScrollText from "react-scroll-text"
 import "./NavBar.css"
 
 export const NavBar = () => {
+
+    const logout = () => {
+        if (localStorage.getItem("farm_user") > 0) {
+            return <li className="navbar__item active">
+            <Link className="navbar__link" to="/" onClick={() => localStorage.removeItem("farm_user")}>Logout</Link>
+        </li>
+        }
+        else {
+            return ""
+        }
+    }
+    
+
     return (
         <>
         <ScrollText className="scroll">
@@ -24,9 +37,7 @@ export const NavBar = () => {
                 <li className="navbar__item active">
                     <Link className="navbar__link" to="/account">My Account</Link>
                 </li>
-                <li className="navbar__item active">
-                    <Link className="navbar__link" to="/" onClick={() => localStorage.removeItem("farm_user")}>Logout</Link>
-                </li>
+                {logout()}
             
             </div>
         </>
